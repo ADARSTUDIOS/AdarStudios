@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script src="https://kit.fontawesome.com/a2e0e9b3c8.js" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADAR STUDIOS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a2e0e9b3c8.js" crossorigin="anonymous"></script>
+</head>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+</head>
+<script>
+  const form = document.getElementById('contact-form');
+  const msg = document.getElementById('form-message');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Animation bouton
+    const button = form.querySelector('button');
+    button.innerText = "Envoi...";
+    button.disabled = true;
+
+    setTimeout(() => {
+      msg.textContent = "✅ Message envoyé avec succès ! Je vous répondrai bientôt.";
+      msg.classList.add('visible');
+      button.innerText = "Envoyer";
+      button.disabled = false;
+      form.reset();
+
+      setTimeout(() => msg.classList.remove('visible'), 4000);
+    }, 1200);
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+
+    function revealSection() {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealSection);
+    revealSection(); // pour afficher celles déjà visibles
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('form-message');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const button = form.querySelector('button');
+      button.innerText = "Envoi...";
+      button.disabled = true;
+
+      setTimeout(() => {
+        msg.textContent = "✅ Message envoyé avec succès ! Je vous répondrai bientôt.";
+        msg.classList.add('visible');
+        button.innerText = "Envoyer";
+        button.disabled = false;
+        form.reset();
+
+        setTimeout(() => {
+          msg.classList.remove('visible');
+        }, 4000);
+      }, 1200);
+    });
+  });
+</script>
+<script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("AdarStudios"); // à remplacer par ton userID EmailJS
+  })();
+</script>
+<script>
+  // Animation fade + slide alterné au scroll
+  document.addEventListener("DOMContentLoaded", function() {
+    const elements = document.querySelectorAll('section, .exp-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  });
+</script>
+<script>
+  const avisForm = document.getElementById("avis-form");
+  const avisMerci = document.getElementById("avis-merci");
+
+  avisForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    avisMerci.classList.add("visible");
+    avisForm.reset();
+    setTimeout(() => avisMerci.classList.remove("visible"), 4000);
+  });
+</script>
+
+<body>
+
+  <!-- === NAVBAR === -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">ADAR <span>STUDIOS</span></div>
+      <ul class="nav-links">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#experience">Expériences</a></li>
+        <li><a href="#about">A propos</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+<!-- === ACCUEIL === -->
+<section id="accueil" class="accueil">
+  <div class="intro">
+    <h1 class="typed-text" data-text="Salut, moi c’est Adar Studios."></h1>
+    <p class="subtitle">DESIGNER GRAPHIQUE • MONTEUR VIDEO • PHOTOGRAPHE</p>
+    <a href="#realisations" class="btn">Voir mes réalisations</a>
+  </div>
+</section>
+
+</section>
+
+  <!-- === HERO === -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h2>Bienvenue sur mon <span>Portfolio</span></h2>
+      <p>Je conçois des projets créatifs, modernes et inspirants.</p>
+      </div>
+      <a href="#projects" class="btn">Voir mes projets</a>
+  </section>
+
+  <!-- === PROJECTS === -->
+  <section id="projects" class="projects">
+    <h2>Mes Projets</h2>
+    <div class="project-grid">
+      <div class="project-card">
+  <a href="projet1.html" class="project-link">
+    <img src="images/creation1.jpg" alt="Projet 1" class="project-image" />
+    <div class="project-overlay">
+      <h3>Projet 1 : Identité visuelle</h3>
+      <p>Découvrez mes créations graphiques modernes et impactantes.</p>
+    </div>
+  </a>
+</div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="MONTAGE">
+        <h3>VIDEO</h3>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="PHOTO">
+        <h3>GRAPHIE</h3>
+      </div>
+    </div>
+  </section>
+  <!-- === ABOUT === -->
+  <section id="about" class="about">
+    <h2>À propos de moi</h2>
+    <p>
+      Je suis un créatif passionné par l’image sous toutes ses formes — montage vidéo, graphisme et photographie.
+Chaque projet est pour moi une histoire à raconter, une émotion à transmettre, une identité à révéler.
+<h2></h2>J’accompagne les marques, artistes et entreprises qui veulent se démarquer, raconter leur histoire et créer un impact durable.Ensemble, faisons de votre univers visuel une expérience authentique, esthétique et mémorable.
+Mon objectif : donner vie à vos idées, valoriser votre image et créer un contenu qui attire, inspire et marque les esprits.
+    </p>
+  </section>
+
+  <!-- === EXPERIENCE === -->
+  <section id="experience" class="experience">
+    <h2>Mes Expériences</h2>
+    <div class="timeline">
+      <div class="exp-card">
+        <h3>DESIGNER GRAPHIQUE</h3>
+        <p class="year">2023 - Présent</p>
+        <p>Création de visuels modernes pour des marques et expositions artistiques.</p>
+      </div>
+      <div class="exp-card">
+        <h3>MONTEUR VIDEO</h3>
+        <p class="year">2022</p>
+        <p>Développement d’identités visuelles pour des projets culturels et événements.</p>
+      </div>
+      <div class="exp-card">
+        <h3>PHOTOGRAPHE</h3>
+        <p class="year">2021</p>
+        <p>Gestion de campagnes sur les réseaux sociaux et stratégies créatives en ligne.</p>
+      </div>
+    </div>
+  <!-- === CONTACT === -->
+<section id="contact" class="contact">
+  <h2>Contactez-moi</h2>
+
+  <div class="contact-icons">
+    <a href="tel:+22891234567" class="icon-glass" title="Téléphone">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a href="mailto:adarstudios@gmail.com" class="icon-glass" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/adarstudios/" target="_blank" class="icon-glass" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.instagram.com/adarstudios/" target="_blank" class="icon-glass" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://discord.gg/adarstudios" target="_blank" class="icon-glass" title="Discord">
+      <i class="fab fa-discord"></i>
+    </a>
+  </div>
+
+  <form id="contact-form" class="contact-form">
+    <div class="form-group">
+      <input type="text" id="name" name="name" placeholder="Votre nom" required />
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" name="email" placeholder="Votre e-mail" required />
+    </div>
+    <div class="form-group">
+      <textarea id="message" name="message" placeholder="Votre message..." rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn">Envoyer</button>
+  </form>
+
+  <p id="form-message" class="form-message"></p>
+
+  <!-- === AVIS === -->
+  <div class="avis">
+    <h3>Laissez votre avis</h3>
+    <form id="avis-form" class="avis-form">
+      <textarea id="avis-message" placeholder="Votre avis sur le site..." rows="4" required></textarea>
+      <button type="submit">Envoyer mon avis</button>
+    </form>
+    <p id="avis-merci" class="merci">✨ Merci pour votre avis !</p>
+  </div>
+</section>
+
+  </form>
+
+  <p class="merci" style="display:none;">Merci pour votre avis 🙏</p>
+</section>
+</section>
+
+<!-- Script pour animation fade au scroll -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".contact, .contact-links a");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  });
+</script>
+
+</section>
+
+<script src="https://kit.fontawesome.com/a2e0e9b3c8.js" crossorigin="anonymous"></script>
+
+
+<script>
+  // Animation "machine à écrire" sur le titre d'accueil
+  const typed = document.querySelector(".typed-text");
+  const text = typed.getAttribute("data-text");
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      typed.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 80);
+    }
+  }
+
+  window.addEventListener("load", () => {
+    setTimeout(typeEffect, 500);
+  });
+</script>
+
+  <p id="form-message" class="form-message"></p>
+</section>
+
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <p>© 2025 LOG - Love Of God | Créé avec passion.</p>
+  </footer>
+
+  <!-- === SCRIPT POUR ANIMATION (optionnel) === -->
+  <script>
+    const elements = document.querySelectorAll('.exp-card, section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
